@@ -1,8 +1,12 @@
 import os
-import tensorflow as tf
+import pickle
+import numpy as np
 from PIL import Image
+from itertools import chain
 from feature import NPDFeature
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+
 
 def import_data(name, convert_type='L', resize=None):
     """
@@ -18,6 +22,7 @@ def import_data(name, convert_type='L', resize=None):
             image = image.convert(convert_type)
             if resize is not None:
                 image = image.resize(resize)
+            image = np.asarray(image)  # image change to array
             return image
         except Exception as e:
             print(e)
@@ -36,19 +41,46 @@ def split_data(data, label, train_size=0.8):
     :param train_size: 切分的训练集大小，默认为0.8，默认测试集为0.2
     :return: 切分后的数据集
     """
-    return train_test_split(data, label, train_size=train_size, test_size=1-train_size)  # 注意默认shuffle数据
+    # index = range(len(data))
+    x_train, x_test, y_train, y_test = train_test_split(data, label, train_size=train_size, test_size=1-train_size)
+    # x_train = [data[i] for i in x_train]
+    # x_test = [data[i] for i in x_test]
+    return  x_train, x_test, y_train, y_test # 注意默认shuffle数据
 
 
-if __name__ == "__main__":
-    # write your code here
+def prepare_data():
+    # parameters
+    dump_file = open('datasets/features/extract_features.pkl', 'wb')
     # data reader
+    print("read image data...")
     face_data = import_data('datasets/original/face', resize=(24, 24))
-    noface_data = import_data('datasets/original/nonface', resize=(24, 24))
+    nonface_data = import_data('datasets/original/nonface', resize=(24, 24))
     face_label = [0] * len(face_data)
-    noface_label = [1] * len(noface_data)
+    noface_label = [1] * len(nonface_data)
+    data = list(chain(*[face_data, nonface_data]))
+    label = list(chain(*[face_label, noface_label]))
+
+    # extract feature
+    print("extract feature from image array...")
+    data = [NPDFeature(i).extract() for i in data]
+
+    # dump data
+    print("dump data...")
+    pickle.dump([data, label], dump_file)
 
     # data split
-    # split_data(data, label)
+    print("split image data...")
+    # x_train, x_test, y_train, y_test = split_data(data, label)
+
+
+
+if __name__ == '__main__':
+    # read data from dump file
+    dump_file = open('datasets/features/extract_features.pkl', 'wb')
+    data, label = pickle.load(dump_file)
+
+
+
 
 
 
