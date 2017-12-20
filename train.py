@@ -6,6 +6,7 @@ from itertools import chain
 from feature import NPDFeature
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+from ensemble import AdaBoostClassifier
 
 
 def import_data(name, convert_type='L', resize=None):
@@ -68,21 +69,27 @@ def prepare_data():
     print("dump data...")
     pickle.dump([data, label], dump_file)
 
-    # data split
-    print("split image data...")
-    # x_train, x_test, y_train, y_test = split_data(data, label)
-
-
 
 if __name__ == '__main__':
+    # prepare data
+    # prepare_data()
+
     # read data from dump file
-    dump_file = open('datasets/features/extract_features.pkl', 'wb')
+    print("read dump data...")
+    dump_file = open('datasets/features/extract_features.pkl', 'rb')
     data, label = pickle.load(dump_file)
 
+    # split data into train and test data
+    print("split image data...")
+    x_train, x_test, y_train, y_test = train_test_split(data, label, train_size=0.7, test_size=0.3)
 
+    # use adaboost classifier
+    print("train adaboost classifier...")
+    weak_classifier = DecisionTreeClassifier()
+    n_weakers_limit = 10
+    clf = AdaBoostClassifier(weak_classifier, n_weakers_limit)
+    clf.fit(x_train, y_train)
 
-
-
-
-    pass
+    # train and predict
+    clf.predict(x_test)
 

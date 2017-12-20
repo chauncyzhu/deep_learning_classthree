@@ -1,6 +1,9 @@
 import pickle
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import classification_report
+a = DecisionTreeClassifier()
+
 
 class AdaBoostClassifier:
     '''A simple AdaBoost Classifier.'''
@@ -31,7 +34,8 @@ class AdaBoostClassifier:
             all learning
         '''
         X, y = np.array(X), np.array(y)   # change to array
-        if X.shape[0] is not y.shape[0]:
+        print("x shape is:", X.shape, "y shape is:", y.shape)
+        if X.shape[0] != y.shape[0]:
             raise Exception("wrong input, x length don't match y")
 
         # weight of each data
@@ -42,11 +46,12 @@ class AdaBoostClassifier:
         alpha = []
         # iteration
         for i in range(self.n_weakers_limit):
-            weak_learner = self.weak_classifier()
+            weak_learner = self.weak_classifier
             weak_learner.fit(X, y, sample_weight=weight)
             y_pred = weak_learner.predict(X)
 
             # wrong predict sample
+
             epsilon = weight[y - y_pred != 0].sum()
             if epsilon > 0.5:
                 break
@@ -57,6 +62,9 @@ class AdaBoostClassifier:
             # append data
             strong_learner.append(weak_learner)
             alpha.append(alp)
+
+            # print predict value
+            print("iteration times:", i, classification_report(y, y_pred))
 
         # final learner
         self.strong_learner = strong_learner
@@ -87,16 +95,9 @@ class AdaBoostClassifier:
             An ndarray consists of predicted labels, which shape should be (n_samples,1).
         '''
         # strong learner
-        y_pred = np.array([learner.pre(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
+        y_pred = np.array([learner.predict_proba(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
         y_pred = self.alpha * y_pred
-        y_pred[]
-
-
-
-
-
-
-
+        print(y_pred)
 
         pass
 
