@@ -2,8 +2,6 @@ import pickle
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
-a = DecisionTreeClassifier()
-
 
 class AdaBoostClassifier:
     '''A simple AdaBoost Classifier.'''
@@ -53,8 +51,10 @@ class AdaBoostClassifier:
             # wrong predict sample
 
             epsilon = weight[y - y_pred != 0].sum()
+
             if epsilon > 0.5:
                 break
+
             alp = 0.5 * np.log((1-epsilon)/epsilon)
             temp = weight * np.exp(-1 * alp * y * y_pred)
             weight = temp/temp.sum()
@@ -68,7 +68,7 @@ class AdaBoostClassifier:
 
         # final learner
         self.strong_learner = strong_learner
-        self.alpha = np.array(alpha)
+        self.alpha = np.array(alpha).reshape(len(alpha), 1)
 
 
     def predict_scores(self, X):
@@ -84,7 +84,7 @@ class AdaBoostClassifier:
 
         pass
 
-    def predict(self, X, threshold=0):
+    def predict(self, X, threshold=0.5):
         '''Predict the catagories for geven samples.
 
         Args:
@@ -95,11 +95,13 @@ class AdaBoostClassifier:
             An ndarray consists of predicted labels, which shape should be (n_samples,1).
         '''
         # strong learner
-        y_pred = np.array([learner.predict_proba(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
-        y_pred = self.alpha * y_pred
-        print(y_pred)
+        y_pred = np.array([learner.predict(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
+        y_pred = np.multiply(self.alpha, y_pred).sum(axis=0)
+        y_pred[y_pred <= threshold] = 0
+        y_pred[y_pred > threshold] = 1
 
-        pass
+        return y_pred
+
 
     @staticmethod
     def save(model, filename):

@@ -6,6 +6,7 @@ from itertools import chain
 from feature import NPDFeature
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import classification_report
 from ensemble import AdaBoostClassifier
 
 
@@ -81,15 +82,17 @@ if __name__ == '__main__':
 
     # split data into train and test data
     print("split image data...")
-    x_train, x_test, y_train, y_test = train_test_split(data, label, train_size=0.7, test_size=0.3)
+    x_train, x_test, y_train, y_test = train_test_split(data, label, train_size=0.8, test_size=0.2)
 
     # use adaboost classifier
     print("train adaboost classifier...")
-    weak_classifier = DecisionTreeClassifier()
+    weak_classifier = DecisionTreeClassifier(max_depth=2)
     n_weakers_limit = 10
     clf = AdaBoostClassifier(weak_classifier, n_weakers_limit)
     clf.fit(x_train, y_train)
 
     # train and predict
-    clf.predict(x_test)
+    print("predict and result...")
+    y_test_pred = clf.predict(x_test)
+    print(classification_report(y_test, y_test_pred))
 
