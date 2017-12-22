@@ -57,7 +57,7 @@ def prepare_data():
     print("read image data...")
     face_data = import_data('datasets/original/face', resize=(24, 24))
     nonface_data = import_data('datasets/original/nonface', resize=(24, 24))
-    face_label = [0] * len(face_data)
+    face_label = [-1] * len(face_data)
     noface_label = [1] * len(nonface_data)
     data = list(chain(*[face_data, nonface_data]))
     label = list(chain(*[face_label, noface_label]))
@@ -75,6 +75,7 @@ if __name__ == '__main__':
     # prepare data
     # prepare_data()
 
+
     # read data from dump file
     print("read dump data...")
     dump_file = open('datasets/features/extract_features.pkl', 'rb')
@@ -86,13 +87,16 @@ if __name__ == '__main__':
 
     # use adaboost classifier
     print("train adaboost classifier...")
-    weak_classifier = DecisionTreeClassifier(max_depth=2)
-    n_weakers_limit = 10
-    clf = AdaBoostClassifier(weak_classifier, n_weakers_limit)
+    n_weakers_limit = 2
+    clf = AdaBoostClassifier(DecisionTreeClassifier, n_weakers_limit)
     clf.fit(x_train, y_train)
 
     # train and predict
     print("predict and result...")
-    y_test_pred = clf.predict(x_test)
-    print(classification_report(y_test, y_test_pred))
+    y_test_pred, y_test_pred_all = clf.predict(x_test)
+
+    # 输出所有基分类器的效果
+    for i in y_test_pred_all:
+        print("each base classifier:", classification_report(y_test, i))
+    print("final classifier:", classification_report(y_test, y_test_pred))
 

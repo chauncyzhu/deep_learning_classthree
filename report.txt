@@ -1,0 +1,472 @@
+分类器个数为2
+predict and result...
+base classifier:              precision    recall  f1-score   support
+
+         -1       0.82      0.81      0.82        96
+          1       0.83      0.84      0.83       104
+
+avg / total       0.82      0.82      0.82       200
+
+final classifier:              precision    recall  f1-score   support
+
+         -1       0.82      0.81      0.82        96
+          1       0.83      0.84      0.83       104
+
+avg / total       0.82      0.82      0.82       200
+
+
+分类器个数为5
+read dump data...
+split image data...
+train adaboost classifier...
+x shape is: (800, 165600) y shape is: (800,)
+iteration times: 0              precision    recall  f1-score   support
+
+         -1       0.91      0.89      0.90       390
+          1       0.90      0.92      0.91       410
+
+avg / total       0.91      0.91      0.90       800
+
+iteration times: 1              precision    recall  f1-score   support
+
+         -1       0.85      0.92      0.88       390
+          1       0.92      0.85      0.88       410
+
+avg / total       0.89      0.88      0.88       800
+
+iteration times: 2              precision    recall  f1-score   support
+
+         -1       0.83      0.76      0.80       390
+          1       0.79      0.86      0.82       410
+
+avg / total       0.81      0.81      0.81       800
+
+iteration times: 3              precision    recall  f1-score   support
+
+         -1       0.86      0.83      0.85       390
+          1       0.84      0.88      0.86       410
+
+avg / total       0.85      0.85      0.85       800
+
+iteration times: 4              precision    recall  f1-score   support
+
+         -1       0.74      0.85      0.79       390
+          1       0.84      0.72      0.77       410
+
+avg / total       0.79      0.78      0.78       800
+
+predict and result...
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.84      0.79      0.82       110
+          1       0.76      0.82      0.79        90
+
+avg / total       0.81      0.81      0.81       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.84      0.89      0.87       110
+          1       0.86      0.80      0.83        90
+
+avg / total       0.85      0.85      0.85       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.83      0.68      0.75       110
+          1       0.68      0.83      0.75        90
+
+avg / total       0.77      0.75      0.75       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.87      0.84      0.85       110
+          1       0.81      0.84      0.83        90
+
+avg / total       0.84      0.84      0.84       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.76      0.87      0.81       110
+          1       0.81      0.66      0.72        90
+
+avg / total       0.78      0.78      0.77       200
+
+final classifier:              precision    recall  f1-score   support
+
+         -1       0.93      0.93      0.93       110
+          1       0.91      0.91      0.91        90
+
+avg / total       0.92      0.92      0.92       200
+
+
+
+分类器个数为6个
+C:\Users\chauncy\Anaconda3\python.exe D:/Coding/pycharm-professional/pycharm-file/deep_learning_classthree/train.py
+read dump data...
+split image data...
+train adaboost classifier...
+x shape is: (800, 165600) y shape is: (800,)
+iteration times: 0              precision    recall  f1-score   support
+
+         -1       0.87      0.94      0.90       402
+          1       0.93      0.86      0.90       398
+
+avg / total       0.90      0.90      0.90       800
+
+iteration times: 1              precision    recall  f1-score   support
+
+         -1       0.95      0.74      0.83       402
+          1       0.79      0.96      0.86       398
+
+avg / total       0.87      0.85      0.85       800
+
+iteration times: 2              precision    recall  f1-score   support
+
+         -1       0.81      0.93      0.86       402
+          1       0.91      0.77      0.84       398
+
+avg / total       0.86      0.85      0.85       800
+
+iteration times: 3              precision    recall  f1-score   support
+
+         -1       0.79      0.82      0.81       402
+          1       0.81      0.78      0.80       398
+
+avg / total       0.80      0.80      0.80       800
+
+iteration times: 4              precision    recall  f1-score   support
+
+         -1       0.83      0.84      0.83       402
+          1       0.83      0.82      0.83       398
+
+avg / total       0.83      0.83      0.83       800
+
+iteration times: 5              precision    recall  f1-score   support
+
+         -1       0.88      0.83      0.86       402
+          1       0.84      0.89      0.86       398
+
+avg / total       0.86      0.86      0.86       800
+
+predict and result...
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.83      0.88      0.85        98
+          1       0.88      0.82      0.85       102
+
+avg / total       0.85      0.85      0.85       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.95      0.76      0.84        98
+          1       0.80      0.96      0.88       102
+
+avg / total       0.87      0.86      0.86       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.71      0.93      0.81        98
+          1       0.90      0.64      0.75       102
+
+avg / total       0.81      0.78      0.78       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.74      0.79      0.76        98
+          1       0.78      0.74      0.76       102
+
+avg / total       0.76      0.76      0.76       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.83      0.78      0.80        98
+          1       0.80      0.84      0.82       102
+
+avg / total       0.81      0.81      0.81       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.81      0.86      0.83        98
+          1       0.85      0.80      0.83       102
+
+avg / total       0.83      0.83      0.83       200
+
+final classifier:              precision    recall  f1-score   support
+
+         -1       0.88      0.95      0.91        98
+          1       0.95      0.87      0.91       102
+
+avg / total       0.91      0.91      0.91       200
+
+
+Process finished with exit code 0
+
+
+分类器个数为7个
+read dump data...
+split image data...
+train adaboost classifier...
+x shape is: (800, 165600) y shape is: (800,)
+iteration times: 0              precision    recall  f1-score   support
+
+         -1       0.90      0.92      0.91       414
+          1       0.91      0.89      0.90       386
+
+avg / total       0.90      0.90      0.90       800
+
+iteration times: 1              precision    recall  f1-score   support
+
+         -1       0.90      0.81      0.86       414
+          1       0.82      0.90      0.86       386
+
+avg / total       0.86      0.86      0.86       800
+
+iteration times: 2              precision    recall  f1-score   support
+
+         -1       0.87      0.89      0.88       414
+          1       0.88      0.85      0.86       386
+
+avg / total       0.87      0.87      0.87       800
+
+iteration times: 3              precision    recall  f1-score   support
+
+         -1       0.85      0.78      0.81       414
+          1       0.78      0.86      0.82       386
+
+avg / total       0.82      0.82      0.82       800
+
+iteration times: 4              precision    recall  f1-score   support
+
+         -1       0.76      0.89      0.82       414
+          1       0.86      0.69      0.76       386
+
+avg / total       0.80      0.80      0.79       800
+
+iteration times: 5              precision    recall  f1-score   support
+
+         -1       0.93      0.73      0.82       414
+          1       0.77      0.94      0.85       386
+
+avg / total       0.85      0.83      0.83       800
+
+iteration times: 6              precision    recall  f1-score   support
+
+         -1       0.75      0.94      0.84       414
+          1       0.91      0.67      0.77       386
+
+avg / total       0.83      0.81      0.81       800
+
+predict and result...
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.80      0.84      0.82        86
+          1       0.87      0.84      0.86       114
+
+avg / total       0.84      0.84      0.84       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.92      0.77      0.84        86
+          1       0.84      0.95      0.89       114
+
+avg / total       0.88      0.87      0.87       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.76      0.84      0.80        86
+          1       0.87      0.80      0.83       114
+
+avg / total       0.82      0.81      0.82       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.73      0.72      0.73        86
+          1       0.79      0.80      0.79       114
+
+avg / total       0.76      0.77      0.76       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.64      0.77      0.70        86
+          1       0.79      0.68      0.73       114
+
+avg / total       0.73      0.71      0.72       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.86      0.72      0.78        86
+          1       0.81      0.91      0.86       114
+
+avg / total       0.83      0.83      0.83       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.63      0.88      0.74        86
+          1       0.88      0.61      0.72       114
+
+avg / total       0.77      0.73      0.73       200
+
+final classifier:              precision    recall  f1-score   support
+
+         -1       0.95      0.92      0.93        86
+          1       0.94      0.96      0.95       114
+
+avg / total       0.95      0.94      0.94       200
+
+
+分类器个数为10个
+C:\Users\chauncy\Anaconda3\python.exe D:/Coding/pycharm-professional/pycharm-file/deep_learning_classthree/train.py
+read dump data...
+split image data...
+train adaboost classifier...
+x shape is: (800, 165600) y shape is: (800,)
+iteration times: 0              precision    recall  f1-score   support
+
+         -1       0.89      0.90      0.90       403
+          1       0.90      0.89      0.90       397
+
+avg / total       0.90      0.90      0.90       800
+
+iteration times: 1              precision    recall  f1-score   support
+
+         -1       0.84      0.90      0.87       403
+          1       0.89      0.83      0.86       397
+
+avg / total       0.87      0.87      0.87       800
+
+iteration times: 2              precision    recall  f1-score   support
+
+         -1       0.78      0.90      0.83       403
+          1       0.88      0.74      0.80       397
+
+avg / total       0.83      0.82      0.82       800
+
+iteration times: 3              precision    recall  f1-score   support
+
+         -1       0.88      0.89      0.88       403
+          1       0.88      0.87      0.88       397
+
+avg / total       0.88      0.88      0.88       800
+
+iteration times: 4              precision    recall  f1-score   support
+
+         -1       0.88      0.74      0.80       403
+          1       0.77      0.89      0.83       397
+
+avg / total       0.82      0.82      0.82       800
+
+iteration times: 5              precision    recall  f1-score   support
+
+         -1       0.80      0.74      0.77       403
+          1       0.76      0.81      0.78       397
+
+avg / total       0.78      0.78      0.78       800
+
+iteration times: 6              precision    recall  f1-score   support
+
+         -1       0.85      0.86      0.86       403
+          1       0.86      0.85      0.85       397
+
+avg / total       0.86      0.85      0.85       800
+
+iteration times: 7              precision    recall  f1-score   support
+
+         -1       0.83      0.81      0.82       403
+          1       0.81      0.83      0.82       397
+
+avg / total       0.82      0.82      0.82       800
+
+iteration times: 8              precision    recall  f1-score   support
+
+         -1       0.81      0.94      0.87       403
+          1       0.93      0.78      0.85       397
+
+avg / total       0.87      0.86      0.86       800
+
+iteration times: 9              precision    recall  f1-score   support
+
+         -1       0.79      0.81      0.80       403
+          1       0.80      0.79      0.79       397
+
+avg / total       0.80      0.80      0.80       800
+
+predict and result...
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.85      0.84      0.84        97
+          1       0.85      0.86      0.86       103
+
+avg / total       0.85      0.85      0.85       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.82      0.87      0.84        97
+          1       0.87      0.83      0.85       103
+
+avg / total       0.85      0.84      0.85       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.72      0.92      0.81        97
+          1       0.89      0.66      0.76       103
+
+avg / total       0.81      0.79      0.78       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.82      0.82      0.82        97
+          1       0.83      0.83      0.83       103
+
+avg / total       0.83      0.82      0.83       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.74      0.69      0.71        97
+          1       0.72      0.77      0.75       103
+
+avg / total       0.73      0.73      0.73       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.81      0.62      0.70        97
+          1       0.71      0.86      0.78       103
+
+avg / total       0.76      0.74      0.74       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.78      0.77      0.78        97
+          1       0.79      0.80      0.79       103
+
+avg / total       0.78      0.79      0.78       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.79      0.74      0.77        97
+          1       0.77      0.82      0.79       103
+
+avg / total       0.78      0.78      0.78       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.77      0.91      0.83        97
+          1       0.90      0.75      0.81       103
+
+avg / total       0.84      0.82      0.82       200
+
+each base classifier:              precision    recall  f1-score   support
+
+         -1       0.76      0.76      0.76        97
+          1       0.78      0.78      0.78       103
+
+avg / total       0.77      0.77      0.77       200
+
+final classifier:              precision    recall  f1-score   support
+
+         -1       0.94      0.95      0.94        97
+          1       0.95      0.94      0.95       103
+
+avg / total       0.95      0.94      0.95       200
+
+
+Process finished with exit code 0

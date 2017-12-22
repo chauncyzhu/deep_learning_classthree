@@ -44,7 +44,7 @@ class AdaBoostClassifier:
         alpha = []
         # iteration
         for i in range(self.n_weakers_limit):
-            weak_learner = self.weak_classifier
+            weak_learner = self.weak_classifier(max_depth=2)
             weak_learner.fit(X, y, sample_weight=weight)
             y_pred = weak_learner.predict(X)
 
@@ -84,7 +84,7 @@ class AdaBoostClassifier:
 
         pass
 
-    def predict(self, X, threshold=0.5):
+    def predict(self, X, threshold=0):
         '''Predict the catagories for geven samples.
 
         Args:
@@ -95,12 +95,12 @@ class AdaBoostClassifier:
             An ndarray consists of predicted labels, which shape should be (n_samples,1).
         '''
         # strong learner
-        y_pred = np.array([learner.predict(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
-        y_pred = np.multiply(self.alpha, y_pred).sum(axis=0)
-        y_pred[y_pred <= threshold] = 0
-        y_pred[y_pred > threshold] = 1
+        y_pred_all = np.array([learner.predict(X) for learner in self.strong_learner])   # (n_samples, n_weakers_limit)
+        y_pred = np.multiply(self.alpha, y_pred_all).mean(axis=0)
+        y_pred[y_pred < threshold] = -1
+        y_pred[y_pred >= threshold] = 1
 
-        return y_pred
+        return y_pred, y_pred_all
 
 
     @staticmethod
